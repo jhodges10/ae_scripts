@@ -6,22 +6,11 @@ from watchdog.observers import Observer
 from watchdog.events import PatternMatchingEventHandler
 from slackclient import SlackClient
 
-# Sandwich API Authorization flow
-sys.path.append('/Users/sanvidpro/Desktop/sandwichvideo')
-import sandwich
-authy = sandwich.get_auth('/Volumes/Sandwich/assets/python/auth.csv')
-token = authy['slack']['token'] 
 sc = SlackClient(token)
 
-chan = 'C12PL8TSS'
-server_directory = '/Volumes/Sandwich/projects/'
+chan = 'C12PL8TSS' # Set this to be the Slack channel you want to be notified in
+server_directory = '' # Set this to be the directory in which all your projects are stored
 project = ''
-
-sys.path.append('/Users/sanvidpro/Desktop/sandwichvideo')
-import sandwich
-
-server_directory = '/Volumes/Sandwich/projects/'
-
 project = raw_input("Which project's shots would you like to watch?: ")
 
 def begin_watch(project):
